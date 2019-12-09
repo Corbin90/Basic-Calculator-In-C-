@@ -1,0 +1,70 @@
+using System;
+using static System.Console;
+namespace Calculator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string decision;
+            string anotherCalculation;
+            int num1; 
+            int num2;
+
+            WriteLine("Welcome to Rahsaan's Basic Calculator!");
+
+            do
+            {
+                Write("\nWhat operator would like to use today ");
+                decision = ReadLine();
+
+                Write("Enter the first number: ");
+                int.TryParse(ReadLine(), out num1);
+
+                Write("Enter the second number: ");
+                int.TryParse(ReadLine(), out num2);
+
+                if (decision == "+")
+                {
+                    WriteLine(sum(num1, num2));
+                }
+                else if (decision == "-")
+                {
+                    WriteLine(diff(num1, num2));
+                }
+                else if (decision == "*")
+                {
+                    WriteLine(product(num1, num2));
+                }
+                else if (decision == "/")
+                {
+                    WriteLine(quotient(num1, num2));
+                }
+                Write("Would you like to make another calculation? ('Y' for yes, 'N' for no)");
+                anotherCalculation = ReadLine().ToUpper();
+            } while (anotherCalculation == "Y");
+            WriteLine("\nThanks for using Rahsaan's Basic Calculator!");
+
+            WriteLine("\nEnter any key to quit...");
+            ReadKey();
+
+        }
+        static int sum(int num1, int num2)
+        {
+            return num1 + num2;
+        }
+        static int diff(int num1, int num2)
+        {
+            return num1 - num2;
+        }
+        static int product(int num1, int num2)
+        {
+            return num1 * num2;
+        }
+        static double quotient(double num1, double num2)
+        {
+            return num1 / num2;
+        }
+
+    }
+}
